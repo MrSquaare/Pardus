@@ -1,0 +1,42 @@
+{% comment %}
+
+Documentation Django sur les templates :
+https://docs.djangoproject.com/fr/2.0/topics/templates/
+
+Documentation Django sur la syntaxe des templates :
+https://docs.djangoproject.com/fr/2.0/topics/templates/#syntax
+
+Documentation Django sur la relation entre les fichiers dit statiques et les templates :
+https://docs.djangoproject.com/fr/2.0/ref/templates/builtins/#static
+
+{% endcomment %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Titre -->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}">
+    {% block css %}{% endblock %}
+
+    <!-- Metadonnées -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <!-- Corps -->
+    {% block body %}{% endblock %}
+
+    <!-- JavaScript -->
+    <script src="{% static "js/jquery.slim.min.js" %}"></script>
+    <script src="{% static "js/popper.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/fontawesome.min.js" %}"></script>
+    {% block javascript %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,113 @@
+{% extends "core/_core.html" %}
+
+{% block title %}Pardus | {{ article.title }}{% endblock %}
+
+{% block header-img %}{% if article.image %}{{ article.image.url }}{% endif %}{% endblock %}
+{% block header-header %}
+    <h1 class="site-title text-uppercase">Pardus</h1>
+{% endblock %}
+{% block header-body %}
+    <h3 class="page-type text-uppercase">Article</h3>
+    <h2 class="page-title text-uppercase">{{ article.title }}</h2>
+{% endblock %}
+{% block header-footer %}
+    <a href="{% url "article_read" article.id article.slug %}#comments" class="btn btn-primary btn-sm"><i class="fas fa-comments"></i></a>
+{% endblock %}
+
+{% block page-container %}
+    <!-- Conteneur de l'article -->
+    <div class="article-container mb-4">
+        <!-- Barre latérale de l'article -->
+        <div class="article-sidebar">
+            <!-- Sommaire de l'article -->
+            <div class="card">
+                <div class="card-body">
+                    <h3>Sommaire</h3>
+                    <div class="list-group">
+                        <h4>Aucun sommaire</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Corps de l'article -->
+        <div class="article-body">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Contenu de l'article -->
+                    <article class="article-content">
+                        {{ article.content|safe }}
+                    </article>
+                    <!-- Détails de l'article -->
+                    <div class="d-flex flex-wrap">
+                        <p class="mr-auto">
+                            Article écrit par <a href="{% url "profile" article.author.id %}"
+                                                 class="badge badge-primary">{{ article.author }}</a>
+                            le <a href="{% url "date_filter" article.date.year article.date.month %}"
+                               class="badge badge-primary">{{ article.date|date:"d/m/Y" }}</a>
+                            à {{ article.date|date:"H\hi" }}
+                            <br>
+                        </p>
+                        <p>
+                            Catégories :
+                            {% for category in article.categories.all %}
+                                <a href="{% url "categories_filter" category.id %}"
+                                   class="badge badge-primary">{{ category.name }}</a>
+                            {% endfor %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteneur des commentaires -->
+    <div class="comments-container" id="comments">
+        {% if request.user.is_authenticated %}
+            <!-- Formulaire d'entrée de commentaires -->
+            <form action="" method="post" class="comment-form mb-4">
+                {% csrf_token %}
+                {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger" role="alert">{{ error }}</div>
+                {% endfor %}
+                <div class="form-group">
+                    <label class="h3" for="{{ form.content.id_for_label }}">Ajouter un commentaire</label>
+                    {{ form.content }}
+                    {% for error in form.content.errors %}
+                        <small class="form-text text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+            </form>
+        {% else %}
+            <div class="alert alert-primary" role="alert">
+                <a href="{% url "login" %}?next={{ request.path }}" class="alert-link">Connectez-vous</a> pour pouvoir
+                publier des commentaires
+            </div>
+        {% endif %}
+        <!-- Liste des commentaires -->
+        <div class="comments-list">
+            <div class="h3 mb-2">Commentaires</div>
+            {% for comment in comments %}
+                <!-- Commentaire -->
+                <div class="comment-container">
+                    <div class="comment-sidebar">
+                        <a href="#" class="comment-author-img"><img
+                                src="https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg" alt="Avatar"></a>
+                        <a href="{% url "profile" comment.author.id %}"
+                           class="comment-author">{{ comment.author.username }}</a>
+                    </div>
+                    <div class="comment-body">
+                        <div class="comment-date">Publié le {{ comment.date|date:"d/m/Y" }}
+                            à {{ comment.date|date:"H\hi" }}</div>
+
+                        <p class="comment-content">
+                            {{ comment.content }}
+                        </p>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Aucun commentaire n'a été publié sur cet article</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

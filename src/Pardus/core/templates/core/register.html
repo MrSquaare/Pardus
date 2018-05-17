@@ -1,0 +1,65 @@
+{% extends "core/_core.html" %}
+
+{% block title %}Pardus | Inscription{% endblock %}
+
+{% block header-header %}
+    <h1 class="site-title text-uppercase">Pardus</h1>
+{% endblock %}
+{% block header-body %}
+    <h2 class="page-title text-uppercase">Inscription</h2>
+{% endblock %}
+
+{% block page-container %}
+    <!-- Haut du conteneur de la page -->
+    <div class="flexy-y">
+        <form action="." method="post" class="custom-form">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger" role="alert">Un ou plusieurs champs sont incorrects</div>
+            {% endif %}
+            {% for error in form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">{{ error }}</div>
+            {% endfor %}
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                {{ form.email }}
+                {% for error in form.email.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+                <label for="{{ form.email_confirm.id_for_label }}">{{ form.email_confirm.label }}</label>
+                {{ form.email_confirm }}
+                {% for error in form.email_confirm.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                {{ form.password }}
+                {% for error in form.password.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+                <label for="{{ form.password_confirm.id_for_label }}">{{ form.password_confirm.label }}</label>
+                {{ form.password_confirm }}
+                {% for error in form.password_confirm.errors %}
+                    <small class="form-text text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    {{ form.terms }}
+                    <label class="custom-control-label" for="{{ form.terms.id_for_label }}">
+                        J'ai lu, compris et accepté les <a href="#">termes et conditions</a>.
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">S'inscrire</button>
+        </form>
+    </div>
+{% endblock %}
