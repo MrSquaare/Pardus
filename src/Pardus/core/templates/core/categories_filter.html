@@ -1,10 +1,10 @@
 {% extends "core/_core.html" %}
 
-{% block title %}Pardus | {{ category.name }}{% endblock %}
+{% block title %}{{ WEBSITE_NAME }} | {{ category.name }}{% endblock %}
 
-{% block header-img %}{% if category.image %}{{ category.image.url }}{% endif %}{% endblock %}
+{% block header-img %}{% if category.image %}{{ category.image.url }}{% else %}{{ block.super }}{% endif %}{% endblock %}
 {% block header-header %}
-    <h1 class="site-title text-uppercase">Pardus</h1>
+    <h1 class="site-title text-uppercase">{{ WEBSITE_NAME }}</h1>
 {% endblock %}
 {% block header-body %}
     <h3 class="page-type text-uppercase">Catégorie</h3>
@@ -55,7 +55,8 @@
                         </p>
                     </div>
                     <div class="align-self-end mt-2">
-                        <a href="{% url "article_read" article.id article.slug %}#comments" class="btn btn-primary btn-sm"><i class="fas fa-comment"></i></a>
+                        <a href="{% url "article_read" article.id article.slug %}#comments"
+                           class="btn btn-primary btn-sm"><i class="fas fa-comment"></i></a>
                     </div>
                 </div>
             </div>

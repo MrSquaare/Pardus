@@ -45,15 +45,15 @@ def category_image(instance, file_name):
     """
         Fonction pour générer le chemin des images des catégories
 
-        Récupère l'instance et affecte la valeur à une variable avec la propriété "name" de l'instance si elle est disponible,
-        sinon affecte un UUID généré, puis retourne la variable
+        Récupère l'instance et affecte la valeur à une variable avec la propriété "pk" et "name" de l'instance si elle
+        est disponible, sinon affecte un UUID généré, puis retourne la variable
     """
 
     upload_to = "categories/"
     # Récupère l'extension du fichier (JPG, PNG, ...)
     file_type = file_name.split(".")[-1]
-    if instance.name:
-        file_name = "{}.{}".format(instance.name, file_type)
+    if instance.pk and instance.name:
+        file_name = "{}.{}".format(slugify(instance.name), file_type)
     else:
         file_name = "{}.{}".format(uuid4().hex, file_type)
     # Défini le chemin complet depuis la racine du projet
@@ -84,15 +84,15 @@ def article_image(instance, file_name):
     """
         Fonction pour générer le chemin des images des articles
 
-        Récupère l'instance et affecte la valeur à une variable avec la propriété "slug" de l'instance si elle est disponible,
-        sinon affecte un UUID généré, puis retourne la variable
+        Récupère l'instance et affecte la valeur à une variable avec la propriété "pk" et "title" de l'instance si elle
+        est disponible, sinon affecte un UUID généré, puis retourne la variable
     """
 
     upload_to = "articles/"
     # Récupère l'extension du fichier (JPG, PNG, ...)
     file_type = file_name.split(".")[-1]
-    if instance.title:
-        file_name = "{}.{}".format(instance.title, file_type)
+    if instance.pk and instance.title:
+        file_name = "{}-{}.{}".format(instance.pk, slugify(instance.title), file_type)
     else:
         file_name = "{}.{}".format(uuid4().hex, file_type)
     # Défini le chemin complet depuis la racine du projet
@@ -131,7 +131,7 @@ class Article(models.Model):
 
         if not self.slug:
             self.slug = slugify(self.title)
-        super().save()
+        super(Article, self).save()
 
     class Meta:
         verbose_name = "article"

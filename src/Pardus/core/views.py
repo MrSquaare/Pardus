@@ -75,7 +75,7 @@ class ArticleRead(FormMixin, DetailView):
             https://docs.djangoproject.com/fr/2.0/topics/class-based-views/generic-display/#adding-extra-context
         """
 
-        context = super().get_context_data(**kwargs)
+        context = super(ArticleRead, self).get_context_data(**kwargs)
         context["form"] = self.get_form()
         context["comments"] = Comment.objects.filter(article=self.object)
         return context
@@ -111,7 +111,7 @@ class ArticleRead(FormMixin, DetailView):
         """
 
         Comment.objects.create(article=self.object, author=self.request.user, content=form.cleaned_data["content"])
-        return super().form_valid(form)
+        return super(ArticleRead, self).form_valid(form)
 
 
 class DateFilter(ListView):
@@ -208,6 +208,31 @@ class Contact(CreateView):
     template_name = "core/contact.html"
     success_url = "/contact/"
 
+    def get_initial(self):
+        """
+            Surcharge de la méthode "get_initial"
+
+            Retourne en plus de l'initial par défaut :
+            - Pré-remplis les champs "first_name" et "last_name" si un utilisateur est connecté et qu'il a spécifié ces
+              paramètres
+            - Pré-remplis le champ "email" si un utilisateur est connecté
+
+            Documentation Django sur la méthode "get_initial" :
+            https://docs.djangoproject.com/fr/2.0/ref/class-based-views/mixins-editing/#django.views.generic.edit.FormMixin.get_initial
+        """
+
+        initial = super(Contact, self).get_initial()
+        if self.request.user.is_authenticated:
+            user = self.request.user
+
+            if user.first_name:
+                initial["first_name"] = user.first_name
+            if user.last_name:
+                initial["last_name"] = user.last_name
+            initial["email"] = user.email
+
+        return initial
+
     def get_success_url(self):
         messages.success(self.request, "Le message a été envoyé avec succès.")
         return super(Contact, self).get_success_url()
@@ -223,22 +248,7 @@ class Login(LoginView):
 
     authentication_form = LoginForm
     template_name = "core/login.html"
-
-    def render_to_response(self, context, **response_kwargs):
-        """
-            Surcharge de la méthode "render_to_response"
-
-            Retourne :
-            - Redirection vers la page d'accueil si l'utilisateur est déjà connecté
-
-            Documentation Django de la méthode "render_to_response" :
-            https://docs.djangoproject.com/fr/2.0/ref/class-based-views/mixins-simple/#django.views.generic.base.TemplateResponseMixin.render_to_response
-        """
-
-        if self.request.user.is_authenticated:
-            return redirect(reverse("home"))
-
-        return super(Login, self).render_to_response(context)
+    redirect_authenticated_user = True
 
 
 class Register(CreateView):
@@ -251,17 +261,18 @@ class Register(CreateView):
     template_name = "core/register.html"
     success_url = "/"
 
-    def render_to_response(self, context, **response_kwargs):
+    def get(self, request, *args, **kwargs):
         """
-            Surcharge de la méthode "render_to_response"
+            Surcharge de la méthode "get"
 
             Retourne :
-            - Redirection vers la page d'accueil si l'utilisateur est déjà connecté
+            - Redirige vers la page d'accueil si un utilisateur connecté accède à la page
         """
+
         if self.request.user.is_authenticated:
             return redirect(reverse("home"))
 
-        return super(Register, self).render_to_response(context)
+        return super(Register, self).get(request, *args, **kwargs)
 
     def form_valid(self, form):
         """
@@ -270,12 +281,12 @@ class Register(CreateView):
             Connecte l'utilisateur après son inscription
         """
 
-        valid = super(Register, self).form_valid(form)
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
         user_login = authenticate(username=username, password=password)
         login(self.request, user_login)
-        return valid
+
+        return super(Register, self).form_valid(form)
 
 
 class Profile(ListView):
@@ -350,9 +361,6 @@ class Settings(LoginRequiredMixin, UpdateView):
 
             Retourne en plus de l'initial par défaut :
             - Vide le champ pré-remplis "email"
-
-            Documentation Django sur la méthode "get_initial" :
-            https://docs.djangoproject.com/fr/2.0/ref/class-based-views/mixins-editing/#django.views.generic.edit.FormMixin.get_initial
         """
 
         initial = super(Settings, self).get_initial()

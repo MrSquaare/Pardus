@@ -1,10 +1,10 @@
 {% extends "core/_core.html" %}
 
-{% block title %}Pardus | Accueil{% endblock %}
+{% block title %}{{ WEBSITE_NAME }} | Accueil{% endblock %}
 
 {% block header-body %}
-    <h2 class="page-title text-uppercase">Pardus</h2>
-    <h3 class="page-subtitle text-uppercase">Système de blog</h3>
+    <h2 class="page-title text-uppercase">{{ WEBSITE_NAME }}</h2>
+    <h3 class="page-subtitle text-uppercase">{{ WEBSITE_SLOGAN }}</h3>
 {% endblock %}
 
 {% block page-container %}
@@ -51,7 +51,8 @@
                         </p>
                     </div>
                     <div class="align-self-end mt-2">
-                        <a href="{% url "article_read" article.id article.slug %}#comments" class="btn btn-primary btn-sm"><i class="fas fa-comment"></i></a>
+                        <a href="{% url "article_read" article.id article.slug %}#comments"
+                           class="btn btn-primary btn-sm"><i class="fas fa-comment"></i></a>
                     </div>
                 </div>
             </div>
