@@ -1,154 +1,155 @@
 {% extends "core/_core.html" %}
 
-{% block title %}Pardus | Recherche{% endblock %}
+{% block title %}{{ WEBSITE_NAME }} | Recherche{% endblock %}
 
 {% block header-header %}
-	<h1 class="site-title text-uppercase">Pardus</h1>
+    <h1 class="site-title text-uppercase">{{ WEBSITE_NAME }}</h1>
 {% endblock %}
 {% block header-body %}
-	<h2 class="page-title text-uppercase">Recherche</h2>
+    <h2 class="page-title text-uppercase">Recherche</h2>
 {% endblock %}
 
 {% block page-container %}
-	<!-- Haut du conteneur de la page -->
-	<div class="d-flex flex-wrap">
-		<h2>Articles dont le titre contient <span class="badge badge-primary">
+    <!-- Haut du conteneur de la page -->
+    <div class="d-flex flex-wrap">
+        <h2>Articles dont le titre contient <span class="badge badge-primary">
             {{ search_text|truncatechars:50 }}</span> :</h2>
-	</div>
+    </div>
 
-	{% if articles %}
-		<!-- Conteneur des articles -->
-		<div class="card-container search-article">
-			<div class="row">
-				{% for article in articles %}
-					<div class="col">
-						<!-- Carte d'article -->
-						<div class="card card-modern card-article"
-							{% if article.image %}
-							 style="background-image: url('{{ article.image.url }}')"
-							{% endif %}>
-							<!-- Haut de la carte d'article -->
-							<div class="card-header">
-								<h3 class="card-title">{{ article.title }}</h3>
-							</div>
-							<!-- Corps de la carte d'article -->
-							<div class="card-body">
-								<p class="card-text">
-									{{ article.content|striptags|truncatewords:40 }}
-								</p>
-								<a href="{% url "article_read" article.id article.slug %}" class="btn btn-primary">Lire
-									plus...</a>
-							</div>
-							<!-- Bas de la carte d'article -->
-							<div class="card-footer">
-								<div class="d-flex flex-wrap">
-									<div class="mr-auto">
-										<p>
-											Article écrit par <a href="{% url "profile" article.author.id %}"
-											                     class="badge badge-primary">{{ article.author }}</a>
-											le <a href="{% url "date_filter" article.date.year article.date.month %}"
-											      class="badge badge-primary"> {{ article.date|date:"d/m/Y" }}</a>
-											à {{ article.date|date:"H\hi" }}
-											<br>
-											Catégories :
-											{% for category in article.categories.all %}
-												<a href="{% url "categories_filter" category.id %}"
-												   class="badge badge-primary">{{ category.name }}</a>
-											{% endfor %}
-										</p>
-									</div>
-									<div class="align-self-end mt-2">
-										<button type="button" class="btn btn-primary btn-sm"><i
-											class="fas fa-heart"></i>
-										</button>
-										<button type="button" class="btn btn-primary btn-sm"><i
-											class="fas fa-comment"></i>
-										</button>
-										<button type="button" class="btn btn-primary btn-sm"><i
-											class="fas fa-share"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				{% endfor %}
-				<div class="breaker"></div>
-			</div>
-		</div>
-	{% else %}
-		<p>Aucun résultat</p>
-	{% endif %}
+    {% if articles %}
+        <!-- Conteneur des articles -->
+        <div class="card-container search-article">
+            <div class="row">
+                {% for article in articles %}
+                    <div class="col">
+                        <!-- Carte d'article -->
+                        <div class="card card-modern card-article"
+                                {% if article.image %}
+                             style="background-image: url('{{ article.image.url }}')"
+                                {% endif %}>
+                            <!-- Haut de la carte d'article -->
+                            <div class="card-header">
+                                <h3 class="card-title">{{ article.title }}</h3>
+                            </div>
+                            <!-- Corps de la carte d'article -->
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {{ article.content|striptags|truncatewords:40 }}
+                                </p>
+                                <a href="{% url "article_read" article.id article.slug %}" class="btn btn-primary">Lire
+                                    plus...</a>
+                            </div>
+                            <!-- Bas de la carte d'article -->
+                            <div class="card-footer">
+                                <div class="d-flex flex-wrap">
+                                    <div class="mr-auto">
+                                        <p>
+                                            Article écrit par <a href="{% url "profile" article.author.id %}"
+                                                                 class="badge badge-primary">{{ article.author }}</a>
+                                            le <a href="{% url "date_filter" article.date.year article.date.month %}"
+                                                  class="badge badge-primary"> {{ article.date|date:"d/m/Y" }}</a>
+                                            à {{ article.date|date:"H\hi" }}
+                                            <br>
+                                            Catégories :
+                                            {% for category in article.categories.all %}
+                                                <a href="{% url "categories_filter" category.id %}"
+                                                   class="badge badge-primary">{{ category.name }}</a>
+                                            {% endfor %}
+                                        </p>
+                                    </div>
+                                    <div class="align-self-end mt-2">
+                                        <button type="button" class="btn btn-primary btn-sm"><i
+                                                class="fas fa-heart"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm"><i
+                                                class="fas fa-comment"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-primary btn-sm"><i
+                                                class="fas fa-share"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="breaker"></div>
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun résultat</p>
+    {% endif %}
 
-	<hr>
+    <hr>
 
-	<div class="d-flex flex-wrap">
-		<h2>Catégories dont le nom contient <span class="badge badge-primary">
+    <div class="d-flex flex-wrap">
+        <h2>Catégories dont le nom contient <span class="badge badge-primary">
             {{ search_text|truncatechars:50 }}</span> :</h2>
-	</div>
+    </div>
 
-	{% if categories %}
-		<!-- Conteneur des catégories -->
-		<div class="card-container search-category">
-			<div class="row">
-				{% for category in categories %}
-					<div class="col">
-						<!-- Carte de catégorie -->
-						<a href="{% url "categories_filter" category.id %}" class="card-category">
-							<div class="card card-modern"
-								{% if category.image %}
-								 style="background-image: url('{{ category.image.url }}')"
-								{% endif %}>
-								<div class="card-body">
-									<h3 class="card-title">{{ category.name }}</h3>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="breaker"></div>
-				{% endfor %}
-			</div>
-		</div>
-	{% else %}
-		<p>Aucun résultat</p>
-	{% endif %}
+    {% if categories %}
+        <!-- Conteneur des catégories -->
+        <div class="card-container search-category">
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col">
+                        <!-- Carte de catégorie -->
+                        <a href="{% url "categories_filter" category.id %}" class="card-category">
+                            <div class="card card-modern"
+                                    {% if category.image %}
+                                 style="background-image: url('{{ category.image.url }}')"
+                                    {% endif %}>
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ category.name }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="breaker"></div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun résultat</p>
+    {% endif %}
 
-	<hr>
+    <hr>
 
-	<div class="d-flex flex-wrap">
-		<h2>Utilisateurs dont le nom d'utilisateur, le prénom ou le nom contient <span
-			class="badge badge-primary">{{ search_text|truncatechars:50 }}</span> :</h2>
-	</div>
+    <div class="d-flex flex-wrap">
+        <h2>Utilisateurs dont le nom d'utilisateur, le prénom ou le nom contient <span
+                class="badge badge-primary">{{ search_text|truncatechars:50 }}</span> :</h2>
+    </div>
 
-	<!-- Conteneur des profils -->
-	{% if users %}
-		<div class="card-container search-profile">
-			<div class="row">
-				{% for user in users %}
-					<div class="col">
-						<!-- Carte d'utilisateur -->
-						<div class="card card-row card-profile">
-							<div class="card-start">
-								<img class="profile-image"
-								     src="https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg" alt="Avatar">
-							</div>
-							<div class="card-middle">
-								<div class="profile-content">
-									<h4 class="card-title">{{ user.username }}</h4>
-									{% if user.first_name and user.last_name %}
-										<h6 class="card-subtitle">{{ user.first_name }} {{ user.last_name }}</h6>
-									{% endif %}
-									<a href="{% url "profile" user.id %}#profileArticles" class="btn btn-primary mt-2">
-										Voir les articles publiés</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="breaker"></div>
-				{% endfor %}
-			</div>
-		</div>
-	{% else %}
-		<p>Aucun résultat</p>
-	{% endif %}
+    <!-- Conteneur des profils -->
+    {% if users %}
+        <div class="card-container search-profile">
+            <div class="row">
+                {% for user in users %}
+                    <div class="col">
+                        <!-- Carte d'utilisateur -->
+                        <div class="card card-row card-profile">
+                            <div class="card-start">
+                                <img class="profile-image"
+                                     src="https://www.imaswmp.in/wp-content/uploads/default-avatar.jpg" alt="Avatar">
+                            </div>
+                            <div class="card-middle">
+                                <div class="profile-content">
+                                    <h4 class="card-title">{{ user.username }}</h4>
+                                    {% if user.first_name and user.last_name %}
+                                        <h6 class="card-subtitle">{{ user.first_name }} {{ user.last_name }}</h6>
+                                    {% endif %}
+                                    <a href="{% url "profile" user.id %}#profileArticlesTab"
+                                       class="btn btn-primary mt-2">
+                                        Voir les articles publiés</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="breaker"></div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun résultat</p>
+    {% endif %}
 {% endblock %}

@@ -1,8 +1,9 @@
 /*!
- * PARDUS
+ * Pardus
  * Guillaume BONNET, Romain MUNOS
  */
 
+/* Fonction pour fixer le pied de page en bas si la taille du corps de page est inférieure à la taille du navigateur */
 
 function stickyFooter() {
     var browserHeight = $(window).height();
@@ -15,9 +16,11 @@ function stickyFooter() {
 }
 
 $(document).ready(function () {
+    /* Appelle la fonction stickyFooter() lorsque la page est prête */
     stickyFooter();
 });
 
-$(window).on("resize", function () {
+$(window).resize(function () {
+    /* Appelle la fonction stickyFooter() lorsque le navigateur est redimensionné */
     stickyFooter();
 });

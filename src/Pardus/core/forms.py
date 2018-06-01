@@ -118,7 +118,7 @@ class RegisterForm(forms.ModelForm):
             https://docs.djangoproject.com/fr/2.0/topics/forms/modelforms/#the-save-method
         """
 
-        user = super().save(commit=False)
+        user = super(RegisterForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password"])
 
         if commit:
@@ -241,7 +241,7 @@ class SettingsForm(forms.ModelForm):
             sauvegarde les données et retourne l'objet User
         """
 
-        user = super().save(commit=False)
+        user = super(SettingsForm, self).save(commit=False)
 
         if self.cleaned_data["first_name"]:
             user.save(update_fields=["first_name"])

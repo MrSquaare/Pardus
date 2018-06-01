@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Pardus | Core{% endblock %}
+{% block title %}{{ WEBSITE_NAME }} | Core{% endblock %}
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static "core/css/pardus.css" %}">
@@ -28,7 +28,7 @@
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <!-- Marque -->
-        <a class="navbar-brand" href="#">Pardus</a>
+        <a class="navbar-brand" href="#">{{ WEBSITE_NAME }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveNavbar"
                 aria-controls="responsiveNavbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -130,8 +130,8 @@
     <footer class="footer">
         <div class="footer-site">
             <!-- Informations relatives au site -->
-            <h1 class="site-title">Pardus</h1>
-            <h2 class="site-slogan">Blog Creator</h2>
+            <h1 class="site-title">{{ WEBSITE_NAME }}</h1>
+            <h2 class="site-slogan">{{ WEBSITE_SLOGAN }}</h2>
         </div>
         <div class="footer-links">
             <!-- Liens relatifs au site -->
@@ -156,4 +156,5 @@
 
 {% block javascript %}
     <script src="{% static "core/js/pardus.js" %}"></script>
+    {% block customscript %}{% endblock %}
 {% endblock %}

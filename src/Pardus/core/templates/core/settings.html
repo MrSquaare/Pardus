@@ -1,9 +1,9 @@
 {% extends "core/_core.html" %}
 
-{% block title %}Pardus | Paramètres{% endblock %}
+{% block title %}{{ WEBSITE_NAME }} | Paramètres{% endblock %}
 
 {% block header-header %}
-    <h1 class="site-title text-uppercase">Pardus</h1>
+    <h1 class="site-title text-uppercase">{{ WEBSITE_NAME }}</h1>
 {% endblock %}
 {% block header-body %}
     <h2 class="page-title text-uppercase">Paramètres</h2>
@@ -21,7 +21,8 @@
                 <div class="alert alert-danger" role="alert">{{ error }}</div>
             {% endfor %}
             {% for message in messages %}
-                <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %} role="alert">{{ message }}</div>
+                <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}
+                                          role="alert">{{ message }}</div>
             {% endfor %}
             <!-- Conteneur des informations personnelles -->
             <div class="card mb-3">

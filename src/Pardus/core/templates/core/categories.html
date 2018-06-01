@@ -1,38 +1,38 @@
 {% extends "core/_core.html" %}
 
-{% block title %}Pardus | Catégories{% endblock %}
+{% block title %}{{ WEBSITE_NAME }} | Catégories{% endblock %}
 
 {% block header-header %}
-	<h1 class="site-title text-uppercase">Pardus</h1>
+    <h1 class="site-title text-uppercase">{{ WEBSITE_NAME }}</h1>
 {% endblock %}
 {% block header-body %}
-	<h2 class="page-title text-uppercase">Catégories</h2>
+    <h2 class="page-title text-uppercase">Catégories</h2>
 {% endblock %}
 
 {% block page-container %}
-	<!-- Haut du conteneur de la page -->
-	{% if categories %}
-		<!-- Conteneur des catégories -->
-		<div class="card-container">
-			<div class="row">
-				{% for category in categories %}
-					<div class="col">
-						<!-- Carte de catégorie -->
-						<a href="{% url "categories_filter" category.id %}" class="card-category">
-							<div class="card card-modern"
-								{% if category.image %}
-								 style="background-image: url('{{ category.image.url }}')"
-								{% endif %}>
-								<div class="card-body">
-									<h3 class="card-title">{{ category.name }}</h3>
-								</div>
-							</div>
-						</a>
-					</div>
-				{% endfor %}
-			</div>
-		</div>
-	{% else %}
-		<p>Aucun catégorie n'est disponible</p>
-	{% endif %}
+    <!-- Haut du conteneur de la page -->
+    {% if categories %}
+        <!-- Conteneur des catégories -->
+        <div class="card-container">
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col">
+                        <!-- Carte de catégorie -->
+                        <a href="{% url "categories_filter" category.id %}" class="card-category">
+                            <div class="card card-modern"
+                                    {% if category.image %}
+                                 style="background-image: url('{{ category.image.url }}')"
+                                    {% endif %}>
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ category.name }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p>Aucun catégorie n'est disponible</p>
+    {% endif %}
 {% endblock %}

@@ -13,9 +13,9 @@
 */
 
 body {
-    /* Text */
+    /* Texte */
     font-family: "Raleway", sans-serif;
-    /* Display */
+    /* Affichage */
     background: url("../img/background.png") repeat;
 }
 
@@ -32,20 +32,20 @@ body {
 /* PAGE-CONTAINER */
 
 div.page-container {
-    /* Margins */
+    /* Marges */
     padding: 2rem 8rem;
 }
 
 @media screen and (min-width: 576px) and (max-width: 991px) {
     div.page-container {
-        /* Margins */
+        /* Marges */
         padding: 2rem 4rem;
     }
 }
 
 @media screen and (max-width: 576px) {
     div.page-container {
-        /* Margins */
+        /* Marges */
         padding: 2rem 2rem;
     }
 }
@@ -53,19 +53,19 @@ div.page-container {
 /* CARD-CONTAINER */
 
 div.card-container div.row {
-    /* Size */
+    /* Taille */
     width: 100%;
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 div.card-container div.row div.col {
-    /* Margins */
+    /* Marges */
     padding: 0.5rem;
 }
 
 div.card-container div.row {
-    /* Size */
+    /* Taille */
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -74,15 +74,15 @@ div.card-container div.row {
 /* CARD-MODERN */
 
 div.card.card-modern {
-    /* Text */
+    /* Texte */
     color: #fff;
-    /* Display */
+    /* Affichage */
     background: #6c757d no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     border: 0;
-    /* Margins */
+    /* Marges */
     margin: 0.5rem 0;
 }
 
@@ -98,23 +98,23 @@ div.card.card-modern div:last-child {
 
 div.card.card-modern div.card-header,
 div.card.card-modern div.card-footer {
-    /* Display */
+    /* Affichage */
     background: rgba(0, 0, 0, 0.6);
 }
 
 div.card.card-modern div.card-header *,
 div.card.card-modern div.card-footer * {
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 div.card.card-modern div.card-body {
-    /* Display */
+    /* Affichage */
     background: rgba(0, 0, 0, 0.4);
 }
 
 div.card.card-modern .card-title {
-    /* Text */
+    /* Texte */
     font-size: 1.6rem;
     margin: 0;
 }
@@ -122,7 +122,7 @@ div.card.card-modern .card-title {
 /* CARD-ROW */
 
 div.card.card-row {
-    /* Display */
+    /* Affichage */
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
@@ -130,13 +130,13 @@ div.card.card-row {
 }
 
 div.card.card-row div:first-child {
-    /* Display */
+    /* Affichage */
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
 }
 
 div.card.card-row div:last-child {
-    /* Display */
+    /* Affichage */
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 }
@@ -144,12 +144,12 @@ div.card.card-row div:last-child {
 div.card.card-row div.card-start,
 div.card.card-row div.card-middle,
 div.card.card-row div.card-end {
-    /* Margins */
+    /* Marges */
     padding: 1rem;
 }
 
 div.card.card-row div.card-middle {
-    /* Display */
+    /* Affichage */
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
@@ -158,20 +158,20 @@ div.card.card-row div.card-middle {
 /* CUSTOM-FORM */
 
 form.custom-form {
-    /* Size */
+    /* Taille */
     width: 60%;
 }
 
 @media screen and (min-width: 576px) and (max-width: 992px) {
     form.custom-form {
-        /* Size */
+        /* Taille */
         width: 80%;
     }
 }
 
 @media screen and (max-width: 576px) {
     form.custom-form {
-        /* Size */
+        /* Taille */
         width: 100%;
     }
 }
@@ -180,19 +180,19 @@ form.custom-form {
 
 div.flexy-x,
 div.flexy-y {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
 }
 
 div.flexy-x {
-    /* Display */
+    /* Affichage */
     justify-content: center;
 }
 
 div.flexy-y {
-    /* Display */
+    /* Affichage */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
@@ -203,20 +203,20 @@ div.flexy-y {
 /* FOOTER */
 
 footer.footer {
-    /* Text */
+    /* Texte */
     color: #ffffff;
-    /* Size */
+    /* Taille */
     width: 100%;
-    /* Display */
+    /* Affichage */
     background-color: #343a40;
-    /* Margins */
+    /* Marges */
     padding: 0.5rem 1rem;
 }
 
 footer.footer,
 footer.footer div.footer-site,
 footer.footer div.footer-links {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -224,7 +224,7 @@ footer.footer div.footer-links {
 
 @media screen and (max-width: 576px) {
     footer.footer {
-        /* Display */
+        /* Affichage */
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -234,48 +234,48 @@ footer.footer div.footer-links {
 }
 
 footer.footer div.footer-site {
-    /* Text */
+    /* Texte */
     text-align: center;
-    /* Display */
+    /* Affichage */
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
     justify-content: center;
-    /* Margins */
+    /* Marges */
     margin-right: auto;
 }
 
 @media screen and (max-width: 576px) {
     footer.footer div.footer-site {
-        /* Margins */
+        /* Marges */
         margin-right: inherit;
         margin-bottom: 2rem;
     }
 }
 
 footer.footer div.footer-site .site-title {
-    /* Text */
+    /* Texte */
     font-size: 1.6rem;
-    /* Margins */
+    /* Marges */
     margin: 0 0 0.125rem 0;
 }
 
 footer.footer div.footer-site .site-slogan {
-    /* Text */
+    /* Texte */
     font-size: 0.8rem;
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 footer.footer div.footer-links {
-    /* Display */
+    /* Affichage */
     align-content: center;
 }
 
 @media screen and (max-width: 576px) {
     footer.footer div.footer-links {
-        /* Display */
+        /* Affichage */
         align-content: inherit;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -285,15 +285,15 @@ footer.footer div.footer-links {
 }
 
 footer.footer div.footer-links ul {
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 @media screen and (max-width: 576px) {
     footer.footer div.footer-links ul {
-        /* Text */
+        /* Texte */
         text-align: center;
-        /* Margins */
+        /* Marges */
         padding-left: 0;
         padding-bottom: 1rem;
     }
@@ -306,14 +306,14 @@ footer.footer div.footer-links ul li {
 }
 
 footer.footer div.footer-links ul li a {
-    /* Text */
+    /* Texte */
     color: #ffffff;
     text-decoration: none;
 }
 
 footer.footer div.footer-links ul li a:hover,
 footer.footer div.footer-links ul li a:active {
-    /* Text */
+    /* Texte */
     font-weight: bold;
 }
 
@@ -327,11 +327,11 @@ footer.footer.footer-bottom {
 /* HEADER */
 
 header.header {
-    /* Text */
+    /* Texte */
     color: #fff;
-    /* Size */
+    /* Taille */
     min-height: 20rem;
-    /* Display */
+    /* Affichage */
     background: #6c757d no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -341,7 +341,7 @@ header.header {
 
 header.header,
 header.header div.header-body {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -353,87 +353,87 @@ header.header div.header-body {
 
 header.header div.header-header,
 header.header div.header-body {
-    /* Text */
+    /* Texte */
     text-align: center;
 }
 
 header.header div.header-header,
 header.header div.header-footer {
-    /* Margins */
+    /* Marges */
     padding: 0.2rem;
 }
 
 header.header div.header-body {
-    /* Display */
+    /* Affichage */
     flex: 1;
     align-items: center;
     justify-content: center;
-    /* Margins */
+    /* Marges */
     padding: 1.6rem 0;
 }
 
 header.header div.header-header,
 header.header div.header-body,
 header.header div.header-footer {
-    /* Size */
+    /* Taille */
     width: 100%;
-    /* Display */
+    /* Affichage */
     background: rgba(0, 0, 0, 0.4);
 }
 
 header.header div.header-header *,
 header.header div.header-footer * {
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 header.header div.header-header .site-title {
-    /* Text */
+    /* Texte */
     font-size: 1.6rem;
 }
 
 header.header div.header-body .site-title {
-    /* Text */
+    /* Texte */
     font-size: 3.2rem;
 }
 
 header.header div.header-body .site-slogan {
-    /* Text */
+    /* Texte */
     font-size: 1.6rem;
 }
 
 header.header div.header-body .page-type {
-    /* Text */
+    /* Texte */
     font-size: 1.2rem;
 }
 
 header.header div.header-body .page-title {
-    /* Text */
+    /* Texte */
     font-size: 3rem;
 }
 
 header.header div.header-body .article-title {
-    /* Text */
+    /* Texte */
     font-size: 2rem;
 }
 
 header.header div.header-body .article-subtitle {
-    /* Text */
+    /* Texte */
     font-size: 0.8rem;
 }
 
 /* NAVBAR */
 
 nav.navbar ul.navbar-nav div.dropdown-menu.search-menu {
-    /* Size */
+    /* Taille */
     min-width: 300px;
-    /* Margins */
+    /* Marges */
     padding: 0.5rem;
 }
 
 @media screen and (max-width: 992px) {
     nav.navbar ul.navbar-nav div.dropdown-menu.search-menu {
-        /* Size */
+        /* Taille */
         min-width: inherit;
     }
 }
@@ -445,7 +445,7 @@ nav.navbar ul.navbar-nav div.dropdown-menu.search-menu {
 /* ARTICLE-CONTAINER */
 
 div.article-container {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -453,69 +453,79 @@ div.article-container {
 
 @media screen and (max-width: 992px) {
     div.article-container {
-        /* Display */
+        /* Affichage */
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 }
 
 div.article-container div.article-sidebar {
-    /* Size */
+    /* Taille */
     min-width: 300px;
-    /* Margins */
+    /* Marges */
     margin-right: 2rem;
 }
 
 @media screen and (max-width: 992px) {
     div.article-container div.article-sidebar {
-        /* Size */
+        /* Taille */
         min-width: 100%;
-        /* Margins */
+        /* Marges */
         margin-right: inherit;
         margin-bottom: 2rem;
     }
 }
 
+div.article-container div.article-body {
+    /* Taille */
+    width: 100%;
+}
+
 div.article-container div.article-body article.article-content {
-    /* Display */
+    /* Affichage */
     -webkit-flex-grow: 1;
     flex-grow: 1;
     overflow-wrap: break-word;
 }
 
 div.article-container div.article-body article.article-content > p {
-    /* Text */
+    /* Texte */
     font-size: 1.2rem;
 }
 
 div.article-container div.article-body article.article-content blockquote p {
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 div.article-container div.article-body article.article-content blockquote p::after {
-    /* Content */
+    /* Contenu */
     content: "»";
 }
 
 div.article-container div.article-body article.article-content blockquote p::before {
-    /* Content */
+    /* Contenu */
     content: "«";
+}
+
+div.article-container div.article-body article.article-content img {
+    /* Taille */
+    max-width: 100%;
 }
 
 /* CARD-ARTICLE */
 
 div.card-container div.card.card-modern.card-article {
-    /* Size */
+    /* Taille */
     width: 100%;
     height: 100%;
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
 @media screen and (max-width: 92rem) {
     div.card-container.search-article div.row div.breaker {
-        /* Size */
+        /* Taille */
         width: 100%;
     }
 }
@@ -523,66 +533,66 @@ div.card-container div.card.card-modern.card-article {
 /* COMMENTS */
 
 div.comment-container {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    /* Margins */
+    /* Marges */
     margin-bottom: 1rem;
 }
 
 div.comment-container div.comment-sidebar {
-    /* Size */
+    /* Taille */
     min-width: 100px;
-    /* Margins */
+    /* Marges */
     margin-right: 1rem;
 }
 
 div.comment-container div.comment-sidebar a.comment-author-img {
-    /* Display */
+    /* Affichage */
     display: block;
 }
 
 div.comment-container div.comment-sidebar a.comment-author-img img {
-    /* Size */
+    /* Taille */
     width: 80px;
     height: 80px;
-    /* Display */
+    /* Affichage */
     display: block;
     border-radius: 50%;
-    /* Margins */
+    /* Marges */
     margin: 0 auto;
 }
 
 div.comment-container div.comment-sidebar a.comment-author {
-    /* Text */
+    /* Texte */
     font-weight: bold;
     text-align: center;
-    /* Display */
+    /* Affichage */
     display: block;
 }
 
 div.comment-container div.comment-sidebar img.comment-author-img {
-    /* Size */
+    /* Taille */
     width: 60px;
     height: 60px;
 }
 
 div.comment-container div.comment-body {
-    /* Display */
+    /* Affichage */
     -webkit-flex-grow: 1;
     flex-grow: 1;
 }
 
 div.comment-container div.comment-body div.comment-date {
-    /* Text */
+    /* Texte */
     font-style: italic;
-    /* Margins */
+    /* Marges */
     margin-bottom: 0.5rem;
 }
 
 div.comment-container div.comment-body p.comment-content {
-    /* Margins */
+    /* Marges */
     margin: 0;
 }
 
@@ -593,21 +603,21 @@ div.comment-container div.comment-body p.comment-content {
 /* CARD-CATEGORY */
 
 a.card-category {
-    /* Size */
+    /* Taille */
     width: 100%;
-    /* Display */
+    /* Affichage */
     display: block;
 }
 
 a.card-category,
 a.card-category:hover,
 a.card-category:active {
-    /* Text */
+    /* Texte */
     text-decoration: none;
 }
 
 a.card-category div.card.card-modern {
-    /* Size */
+    /* Taille */
     width: 100%;
     min-width: 18rem;
     height: 10rem;
@@ -616,13 +626,13 @@ a.card-category div.card.card-modern {
 
 @media screen and (max-width: 24rem) {
     a.card-category div.card.card-modern {
-        /* Size */
+        /* Taille */
         min-width: inherit;
     }
 }
 
 a.card-category div.card.card-modern div.card-body {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -637,26 +647,26 @@ a.card-category div.card.card-modern div.card-body {
 }
 
 div.card-container.search-category div.row div.col {
-    /* Size */
+    /* Taille */
     max-width: 19rem;
 }
 
 @media screen and (max-width: 46rem) {
     div.card-container.search-category div.row div.col {
-        /* Size */
+        /* Taille */
         max-width: inherit;
     }
 }
 
 @media screen and (max-width: 46rem) {
     div.card-container.search-category div.row div.breaker {
-        /* Size */
+        /* Taille */
         width: 100%;
     }
 }
 
 a.card-category div.card.card-modern .card-title {
-    /* Text */
+    /* Texte */
     font-size: 2.6rem;
 }
 
@@ -667,7 +677,7 @@ a.card-category div.card.card-modern .card-title {
 /* PROFILE-CONTAINER */
 
 div.profile-container {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -675,31 +685,31 @@ div.profile-container {
 
 @media screen and (max-width: 992px) {
     div.profile-container {
-        /* Display */
+        /* Affichage */
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
 }
 
 div.profile-container div.profile-sidebar {
-    /* Size */
+    /* Taille */
     min-width: 300px;
-    /* Margins */
+    /* Marges */
     margin-right: 2rem;
 }
 
 @media screen and (max-width: 992px) {
     div.profile-container div.profile-sidebar {
-        /* Size */
+        /* Taille */
         min-width: 100%;
-        /* Margins */
+        /* Marges */
         margin-right: inherit;
         margin-bottom: 2rem;
     }
 }
 
 div.profile-container div.profile-body {
-    /* Display */
+    /* Affichage */
     -webkit-flex-grow: 1;
     flex-grow: 1;
 }
@@ -707,26 +717,26 @@ div.profile-container div.profile-body {
 /* CARD-PROFILE */
 
 div.card.card-row.card-profile {
-    /* Display */
+    /* Affichage */
     border: 0;
 }
 
 div.card.card-row.card-profile div.card-start {
-    /* Margins */
+    /* Marges */
     padding: 0;
 }
 
 div.card.card-row.card-profile div.card-start img.profile-image {
-    /* Size */
+    /* Taille */
     width: 10rem;
     height: 10rem;
-    /* Display */
+    /* Affichage */
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
 }
 
 div.card.card-row.card-profile div.card-middle {
-    /* Display */
+    /* Affichage */
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -741,7 +751,7 @@ div.card.card-row.card-profile div.card-middle {
 
 @media screen and (max-width: 92rem) {
     div.card-container.search-profile div.row div.breaker {
-        /* Size */
+        /* Taille */
         width: 100%;
     }
 }
